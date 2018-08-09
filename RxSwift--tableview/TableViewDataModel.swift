@@ -42,12 +42,32 @@ struct SectionDataModel {
     }
 }
 
+//使用RxDataSources的唯一限制是，section中使用的每个类型都必须符合IdentifiableType和Equatable协议。
+//IdentifiableType声明一个唯一的标识符（在同一具体类型的对象中是唯一的），以便RxDataSources唯一标识对象
 extension SectionDataModel:IdentifiableType{
     typealias Identity = String
     var identity:Identity {return secondName}
     
 }
 
-class TableViewDataModel{
-
+//分组tableView数据源
+class sectionData{
+    let sectionArr = Observable.just([
+        SectionModel(model: "one", items: [
+            SectionDataModel(firstName: "plan A", secondName: "A description"),
+            SectionDataModel(firstName: "plan B", secondName: "B descriptiopn"),
+            ]),
+        SectionModel(model: "two", items: [
+            SectionDataModel(firstName: "plan AA", secondName: "AA description"),
+            SectionDataModel(firstName: "plan BB", secondName: "BB description"),
+            SectionDataModel(firstName: "plan CC", secondName: "CC description"),
+            ]),
+        SectionModel(model: "three", items: [
+            SectionDataModel(firstName: "plan AAA", secondName: "AAA description"),
+            SectionDataModel(firstName: "plan BBB", secondName: "BBB description"),
+            SectionDataModel(firstName: "plan CCC", secondName: "CCC description"),
+            SectionDataModel(firstName: "plan DDD", secondName: "DDD description"),
+            ])
+        ])
+    
 }

@@ -7,12 +7,23 @@
 //
 
 import UIKit
+import RxCocoa
+import RxSwift
+import RxDataSources
 
 class SectionTableViewVC: UIViewController {
 
+    let disoposeBag = DisposeBag()
+    var sectionTableView : UITableView!
+    var sectionDatas = sectionData()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.title = "组tableView"
+        createTableView()
+        bindViewModel()
+        
         // Do any additional setup after loading the view.
     }
 
@@ -20,16 +31,35 @@ class SectionTableViewVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension SectionTableViewVC{
+    func createTableView() -> Void {
+        self.view.backgroundColor = UIColor.lightGray
+        sectionTableView = UITableView(frame: self.view.bounds, style: .plain)
+        sectionTableView.register(normalTableViewCell.self, forCellReuseIdentifier: normalTableViewCell.description())
+        self.view.addSubview(sectionTableView)
+
     }
-    */
-
+    
+    func bindViewModel() -> Void {
+        let dataS = RxTableViewSectionedReloadDataSource<SectionModel<String,SectionDataModel>>(configureCell: { (dataSource, desTableView, indexPath, model) -> UITableViewCell in
+            let cell = self.sectionTableView.dequeueReusableCell(withIdentifier: normalTableViewCell.description(), for: indexPath) as? normalTableViewCell
+            cell?.firstLable?.text = model.firstName
+            cell?.secondLable?.text = model.secondName
+            
+            return cell!
+            
+        }, titleForHeaderInSection: { (dataSource, index) -> String? in
+            
+            return dataSource.sectionModels[index].model
+        })
+        
+        sectionDatas.sectionArr.asDriver(onErrorJustReturn: [])
+            .drive(sectionTableView.rx.items(dataSource: dataS))
+            .disposed(by: disoposeBag)
+        
+    }
+    
 }

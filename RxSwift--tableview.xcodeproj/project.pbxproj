@@ -10,6 +10,7 @@
 		83B09FCF7BACA1D74DE3FF95 /* Pods_RxSwift__tableview.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F267054DE6139E62A75D79A9 /* Pods_RxSwift__tableview.framework */; };
 		C316591221147FB3007F7309 /* Operators.swift in Sources */ = {isa = PBXBuildFile; fileRef = C316591121147FB3007F7309 /* Operators.swift */; };
 		C32EA9F421159C8D00F3B8ED /* TableViewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C32EA9F321159C8D00F3B8ED /* TableViewViewController.swift */; };
+		C340656B211C1884002C1ED0 /* normalTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C340656A211C1884002C1ED0 /* normalTableViewCell.swift */; };
 		C35E0C7820F3A186002D2F08 /* RxCocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C35E0C7720F3A186002D2F08 /* RxCocoa.framework */; };
 		C35E0C7A20F3A189002D2F08 /* RxSwift.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C35E0C7920F3A189002D2F08 /* RxSwift.framework */; };
 		C35F87E62119B71C00AD3619 /* TableViewDataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C35F87E52119B71C00AD3619 /* TableViewDataModel.swift */; };
@@ -25,6 +26,7 @@
 		6A263C1907A683B998117EDB /* Pods-RxSwift--tableview.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RxSwift--tableview.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RxSwift--tableview/Pods-RxSwift--tableview.debug.xcconfig"; sourceTree = "<group>"; };
 		C316591121147FB3007F7309 /* Operators.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Operators.swift; sourceTree = "<group>"; };
 		C32EA9F321159C8D00F3B8ED /* TableViewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewViewController.swift; sourceTree = "<group>"; };
+		C340656A211C1884002C1ED0 /* normalTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = normalTableViewCell.swift; sourceTree = "<group>"; };
 		C35E0C7720F3A186002D2F08 /* RxCocoa.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxCocoa.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C35E0C7920F3A189002D2F08 /* RxSwift.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = RxSwift.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C35F87E52119B71C00AD3619 /* TableViewDataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TableViewDataModel.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 				C316591121147FB3007F7309 /* Operators.swift */,
 				C3EF903A20EE527C00D3FA45 /* AppDelegate.swift */,
 				C3EF903C20EE527C00D3FA45 /* ViewController.swift */,
+				C340656A211C1884002C1ED0 /* normalTableViewCell.swift */,
 				C35F87E52119B71C00AD3619 /* TableViewDataModel.swift */,
 				C32EA9F321159C8D00F3B8ED /* TableViewViewController.swift */,
 				C35F87E72119C59B00AD3619 /* SectionTableViewVC.swift */,
@@ -231,6 +234,7 @@
 				C35F87E62119B71C00AD3619 /* TableViewDataModel.swift in Sources */,
 				C3EF903D20EE527C00D3FA45 /* ViewController.swift in Sources */,
 				C35F87E82119C59B00AD3619 /* SectionTableViewVC.swift in Sources */,
+				C340656B211C1884002C1ED0 /* normalTableViewCell.swift in Sources */,
 				C3EF903B20EE527C00D3FA45 /* AppDelegate.swift in Sources */,
 				C32EA9F421159C8D00F3B8ED /* TableViewViewController.swift in Sources */,
 				C316591221147FB3007F7309 /* Operators.swift in Sources */,

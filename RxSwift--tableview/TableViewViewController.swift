@@ -39,7 +39,7 @@ extension TableViewViewController{
             firstTableView = UITableView(frame: self.view.bounds, style: .plain)
             view.addSubview(firstTableView)
             //tableView行操作必须打开，才可移动cell
-            firstTableView.isEditing = true
+//            firstTableView.isEditing = true
             firstTableView.backgroundColor = UIColor.orange
             firstTableView.register(normalTableViewCell.self, forCellReuseIdentifier: resuerId)
         }
@@ -57,8 +57,9 @@ extension TableViewViewController{
     
     func RxTableViewEvent() -> Void {
         //cell选中点击事件
-        firstTableView.rx.modelSelected(DataModel.self).subscribe(onNext: { (model) in
+        firstTableView.rx.modelSelected(DataModel.self).subscribe(onNext: { [weak self](model) in
             print("modelSelected触发了cell点击，\(model)")
+            self?.navigationController?.pushViewController(SectionTableViewVC(), animated: true)
         })
             .disposed(by: disposeBag)
         
@@ -82,41 +83,3 @@ extension TableViewViewController{
     }
 }
 
-class normalTableViewCell: UITableViewCell {
-    var firstLable:UILabel?
-    var secondLable:UILabel?
-    
-    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
-        self.firstLable = UILabel()
-        self.contentView.addSubview(self.firstLable!)
-    
-        self.secondLable = UILabel()
-        self.contentView.addSubview(self.secondLable!)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.firstLable?.snp.makeConstraints({ (make) in
-            make.left.equalTo(self.contentView.snp.left).offset(10)
-            make.centerY.equalTo(self.contentView.snp.centerY)
-            make.width.equalTo(100)
-            make.height.equalTo(self.contentView.snp.height)
-        })
-        self.secondLable?.snp.makeConstraints({ (make) in
-            make.left.equalTo((self.firstLable?.snp.right)!).offset(10)
-            make.centerY.equalTo((self.firstLable?.snp.centerY)!)
-            make.width.equalTo((self.firstLable?.snp.width)!)
-            make.height.equalTo((self.firstLable?.snp.height)!)
-        })
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) not implemented yet")
-    }
-    
-    func getValue(firstStr:String, secondStr:String) -> Void {
-        self.firstLable?.text = firstStr
-        self.secondLable?.text = secondStr
-    }
-}
